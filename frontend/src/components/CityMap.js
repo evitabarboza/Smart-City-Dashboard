@@ -1,26 +1,50 @@
-import React from "react";
-import { GoogleMap, LoadScript, TrafficLayer, Marker } from "@react-google-maps/api";
+import React, { useEffect, useRef, useState } from 'react';
 
-const containerStyle = {
-  width: "100%",
-  height: "100vh",
-};
+function CityMap() {
+  const mapRef = useRef(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
-// Mangalore city coordinates
-const mangaloreLocation = { lat: 12.9121, lng: 74.8560 };
+  // Dynamically load Google Maps API
+  const loadGoogleMapsAPI = () => {
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => setMapLoaded(true); // Set mapLoaded to true once the API is loaded
+    document.head.appendChild(script);
+  };
 
-const CityMap = () => {
+  // Initialize the map
+  useEffect(() => {
+    if (!mapLoaded) {
+      loadGoogleMapsAPI(); // Load Google Maps API if it's not loaded
+    }
+  }, [mapLoaded]);
+
+  // Once the API is loaded, initialize the map
+  useEffect(() => {
+    if (mapLoaded) {
+      const { Map, TrafficLayer } = window.google.maps;
+
+      const map = new Map(mapRef.current, {
+        center: { lat: 12.9141, lng: 74.8560 }, // Mangalore's coordinates
+        zoom: 12,
+      });
+
+      // Create and display the traffic layer
+      const trafficLayer = new TrafficLayer();
+      trafficLayer.setMap(map); // Set the traffic layer on the map
+
+    }
+  }, [mapLoaded]);
+
   return (
-    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-      <GoogleMap mapContainerStyle={containerStyle} center={mangaloreLocation} zoom={13}>
-        {/* Live Traffic Layer */}
-        <TrafficLayer />
-        
-        {/* Marker for Mangalore City */}
-        <Marker position={mangaloreLocation} title="Mangalore City Center" />
-      </GoogleMap>
-    </LoadScript>
+    <div
+      id="map"
+      style={{ width: '100%', height: '500px' }}
+      ref={mapRef}
+    ></div>
   );
-};
+}
 
 export default CityMap;
