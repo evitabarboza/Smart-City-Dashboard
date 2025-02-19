@@ -8,7 +8,7 @@ function App() {
     <div>
       <h1 style={{ textAlign: "center" }}>Smart City Dashboard</h1>
       <Weather /> {/* Add Weather component */}
-      <CityMap />
+     
       <TrafficAlert />
     </div>
   );
