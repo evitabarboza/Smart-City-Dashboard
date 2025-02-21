@@ -89,11 +89,11 @@ const TrafficAlert = () => {
   // Function to show traffic alert
   const showTrafficAlert = (map, position, trafficFactor) => {
     if (!infoWindowRef.current) return;
-    
+  
     let message = "Smooth Traffic";
     let color = "green";
     let emoji = "🏎️";
-
+  
     if (trafficFactor > 0.9) {
       message = "Heavy Traffic! Expect Delays";
       color = "red";
@@ -103,7 +103,10 @@ const TrafficAlert = () => {
       color = "orange";
       emoji = "✋";
     }
-
+  
+    // Send data to backend
+    saveTrafficData(position, trafficFactor);
+  
     infoWindowRef.current.setContent(`
       <div style="color: ${color};">
         <b>${emoji} ${message}</b> <br/>
@@ -113,7 +116,26 @@ const TrafficAlert = () => {
     infoWindowRef.current.setPosition(position);
     infoWindowRef.current.open(map);
   };
-
+  
+  // Function to send traffic data to the backend
+  const saveTrafficData = async (location, trafficFactor) => {
+    try {
+      const response = await fetch("http://localhost:5000/save-traffic", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ location, trafficFactor }),
+      });
+  
+      if (response.ok) {
+        console.log("Traffic data saved successfully!");
+      } else {
+        console.error("Failed to save traffic data.");
+      }
+    } catch (error) {
+      console.error("Error sending data:", error);
+    }
+  };
+  
   return <div id="map" style={{ width: "100%", height: "500px" }} ref={mapRef}></div>;
 };
 
