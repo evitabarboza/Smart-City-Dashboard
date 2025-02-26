@@ -7,7 +7,7 @@ const Weather = () => {
   const [lastUpdated, setLastUpdated] = useState("");
   const [prevTemp, setPrevTemp] = useState(null);
   const [tempTrend, setTempTrend] = useState("");
-  const [averageTraffic, setAverageTraffic] = useState(() => {
+  const [averageTraffic] = useState(() => {
     return (Math.random() * (5.0 - 1.0) + 1.0).toFixed(2);
   });
   const [travelNotification, setTravelNotification] = useState("");
