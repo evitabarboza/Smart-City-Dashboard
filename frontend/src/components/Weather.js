@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import "./Weather.css"; // Import the CSS file
 
 const Weather = () => {
   const [weather, setWeather] = useState(null);
@@ -62,48 +63,49 @@ const Weather = () => {
   }, [fetchWeather, weather, averageTraffic]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-lg shadow-md border-b border-gray-700 text-gray-200 p-6 flex flex-col items-center">
-      <div className="grid grid-cols-3 gap-4 w-full max-w-4xl">
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-          <h3 className="text-xl font-semibold text-gray-100">🌤️ Mangalore Weather</h3>
-          <p className="text-sm text-gray-400">{getSeason()}</p>
+    <nav id="weather-dashboard">
+      <div className="weather-grid">
+        <div id="weather-box-1" className="weather-box">
+          <h3>🌤️ Mangalore Weather</h3>
+          <p>{getSeason()}</p>
         </div>
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-          <p className="text-sm text-gray-400">🕒 Last Updated</p>
-          <p className="text-lg font-medium">{lastUpdated}</p>
+        <div id="weather-box-2" className="weather-box">
+          <p>🕒 Last Updated</p>
+          <p>{lastUpdated}</p>
         </div>
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-          <p className="text-sm text-gray-400">🚦 Traffic Factor</p>
-          <p className="text-lg font-medium">{averageTraffic}</p>
+        <div id="weather-box-3" className="weather-box">
+          <p>🚦 Traffic Factor</p>
+          <p>{averageTraffic}</p>
         </div>
       </div>
+
       {error ? (
-        <p className="text-red-400 text-sm mt-4">{error}</p>
+        <p id="weather-error" className="weather-error">{error}</p>
       ) : weather ? (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-4">
-          <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-            <p className="text-sm text-gray-400">🌡️ Temperature</p>
-            <p className="text-lg font-medium">{weather.main.temp}°C</p>
+        <div className="weather-details">
+          <div id="weather-box-4" className="weather-box">
+            <p>🌡️ Temperature</p>
+            <p>{weather.main.temp}°C</p>
           </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-            <p className="text-sm text-gray-400">💧 Humidity</p>
-            <p className="text-lg font-medium">{weather.main.humidity}%</p>
+          <div id="weather-box-5" className="weather-box">
+            <p>💧 Humidity</p>
+            <p>{weather.main.humidity}%</p>
           </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-            <p className="text-sm text-gray-400">🌥️ Condition</p>
-            <p className="text-lg font-medium capitalize">{weather.weather[0].description}</p>
+          <div id="weather-box-6" className="weather-box">
+            <p>🌥️ Condition</p>
+            <p>{weather.weather[0].description}</p>
           </div>
-          <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center">
-            <p className="text-sm text-gray-400">📊 Trend</p>
-            <p className="text-lg font-medium">{tempTrend}</p>
+          <div id="weather-box-7" className="weather-box">
+            <p>📊 Trend</p>
+            <p>{tempTrend}</p>
           </div>
         </div>
       ) : (
-        <p className="text-gray-400 text-sm mt-4">Loading weather...</p>
+        <p id="weather-loading" className="weather-loading">Loading weather...</p>
       )}
 
       {travelNotification && (
-        <div className="mt-4 p-3 bg-yellow-600 text-white rounded-lg shadow-lg text-sm w-full max-w-4xl text-center">
+        <div id="weather-notification" className="weather-notification">
           {travelNotification}
         </div>
       )}
