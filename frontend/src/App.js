@@ -1,14 +1,13 @@
 import React from "react";
-import CityMap from "./components/CityMap";
-import Weather from "./components/Weather"; // Import Weather component
+import Weather from "./components/Weather"; 
 import TrafficAlert from "./components/TrafficAlert";
+import "./App.css"; // Import CSS for layout
 
 function App() {
   return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>Smart City Dashboard</h1>
-      <Weather /> {/* Add Weather component */}
-     
+    <div className="dashboard">
+      <h1 className="dashboard-title">Smart City Dashboard</h1>
+      <Weather />
       <TrafficAlert />
     </div>
   );

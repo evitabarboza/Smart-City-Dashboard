@@ -1,0 +1,74 @@
+/* Center the dashboard container */
+.weather-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto; /* Centers the container horizontally */
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content inside */
+    justify-content: center; /* Centers vertically */
+    text-align: center; /* Ensures text is centered */
+}
+
+/* Centering the grid */
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 800px;
+    justify-content: center; /* Center grid items */
+}
+
+/* Individual weather boxes */
+.weather-box {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Ensure all text is properly aligned */
+.weather-box h3, 
+.weather-box p {
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Centering detailed weather section */
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 16px;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Responsive design for larger screens */
+@media (min-width: 768px) {
+    .weather-details {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Error and notification messages */
+.weather-error,
+.weather-loading,
+.weather-notification {
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+}
