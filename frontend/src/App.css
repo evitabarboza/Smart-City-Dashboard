@@ -1,21 +1,27 @@
+
 .dashboard-title {
     text-align: center;
     margin-top: 20px;
     font-size: 2rem;
     font-weight: bold;
+    color: #333;
 }
+
 
 #weather-dashboard {
     background-color: #f3f3f3;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 12px;
     width: 90%;
     max-width: 900px;
     margin: 50px auto; 
-    text-align: center; 
+
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+
 }
 
 
@@ -27,6 +33,18 @@
     max-width: 800px;
     justify-content: center; 
 }
+@font-face {
+    font-family: "CustomCursive";
+    src: url("/public/font/Amsterdam Handwriting.ttf") format("truetype");
+}
+.track-title {
+    font-family: "CustomCursive", cursive;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
 
 
 .weather-box {
@@ -35,8 +53,12 @@
     background: white;
     margin: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center; 
+
+    text-align: center;
+ 
+
     font-weight: bold;
+    color: #333;
 }
 
 
@@ -54,11 +76,87 @@
 
 #weather-notification {
     font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 8px;
     text-align: center;
     background: #ffcc00;
     margin-top: 20px;
     width: 100%;
     max-width: 800px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.opening-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #86a8e7);
+    color: white;
+    font-family: "Arial", sans-serif;
+}
+
+
+.app-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.highlight {
+    color: #007bff;
+}
+
+
+.tagline {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.api-highlight {
+    color: #0047AB;  
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.continue-button {
+    background: #2C3E50; 
+    color: #ECF0F1; 
+    border: 2px solid #34495E;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.continue-button:hover {
+    background: #1A252F; 
+    border-color: #1A252F;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.continue-button:active {
+    transform: translateY(1px);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.dashboard {
+    padding: 30px;
+    width: 90%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
