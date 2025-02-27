@@ -1,4 +1,4 @@
-/* Center the dashboard container */
+
 .weather-container {
     width: 90%;
     max-width: 900px;
@@ -23,10 +23,10 @@
     gap: 16px;
     width: 100%;
     max-width: 800px;
-    justify-content: center; /* Center grid items */
+    justify-content: center; 
 }
 
-/* Individual weather boxes */
+
 .weather-box {
     background: #ffffff;
     padding: 16px;
@@ -35,7 +35,7 @@
     text-align: center;
 }
 
-/* Ensure all text is properly aligned */
+
 .weather-box h3, 
 .weather-box p {
     font-size: 1rem;
@@ -44,7 +44,7 @@
     text-align: center;
 }
 
-/* Centering detailed weather section */
+
 .weather-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
