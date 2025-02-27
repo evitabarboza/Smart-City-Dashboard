@@ -63,53 +63,50 @@ const Weather = () => {
   }, [fetchWeather, weather, averageTraffic]);
 
   return (
-    <nav id="weather-dashboard">
-      <div className="weather-grid">
-        <div id="weather-box-1" className="weather-box">
-          <h3>🌤️ Mangalore Weather</h3>
-          <p>{getSeason()}</p>
-        </div>
-        <div id="weather-box-2" className="weather-box">
-          <p>🕒 Last Updated</p>
-          <p>{lastUpdated}</p>
-        </div>
-        <div id="weather-box-3" className="weather-box">
-          <p>🚦 Traffic Factor</p>
-          <p>{averageTraffic}</p>
-        </div>
-      </div>
-
-      {error ? (
-        <p id="weather-error" className="weather-error">{error}</p>
-      ) : weather ? (
-        <div className="weather-details">
-          <div id="weather-box-4" className="weather-box">
-            <p>🌡️ Temperature</p>
-            <p>{weather.main.temp}°C</p>
+    <div>
+      {/* Google Fonts Link */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Permanent+Marker&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet"
+      />
+      <nav id="weather-dashboard">
+        <div className="dashboard-container">
+          <div className="mangalore-weather">
+            <h1 className="weather-title">🌤️ Mangalore Weather</h1>
+            <p className="season-info">
+              <span className="label">Current dealing with </span> 
+              <span className="weather-value">{getSeason()}</span>
+            </p>
           </div>
-          <div id="weather-box-5" className="weather-box">
-            <p>💧 Humidity</p>
-            <p>{weather.main.humidity}%</p>
-          </div>
-          <div id="weather-box-6" className="weather-box">
-            <p>🌥️ Condition</p>
-            <p>{weather.weather[0].description}</p>
-          </div>
-          <div id="weather-box-7" className="weather-box">
-            <p>📊 Trend</p>
-            <p>{tempTrend}</p>
+          <div className="weather-grid">
+            <div className="weather-box1">
+              <p>🚦 Traffic Factor</p>
+              <p>{averageTraffic}</p>
+            </div>
+            <div className="weather-box2">
+              <p>🌡️ Temperature</p>
+              <p>{weather?.main.temp}°C</p>
+            </div>
+            <div className="weather-box3">
+              <p>💧 Humidity</p>
+              <p>{weather?.main.humidity}%</p>
+            </div>
+            <div className="weather-box4">
+              <p>🌥️ Condition</p>
+              <p>{weather?.weather[0].description}</p>
+            </div>
+            <div className="weather-box5">
+              <p>📊 Trend</p>
+              <p>{tempTrend}</p>
+            </div>
           </div>
         </div>
-      ) : (
-        <p id="weather-loading" className="weather-loading">Loading weather...</p>
-      )}
-
-      {travelNotification && (
-        <div id="weather-notification" className="weather-notification">
-          {travelNotification}
-        </div>
-      )}
-    </nav>
+        {travelNotification && <div className="weather-notification">{travelNotification}</div>}
+        <p className="last-updated">🕒 Last Updated: {lastUpdated}</p>
+      </nav>
+    </div>
   );
 };
 
