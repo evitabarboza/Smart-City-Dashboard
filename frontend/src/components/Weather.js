@@ -99,6 +99,7 @@ const Weather = () => {
             <p>📊 Trend</p>
             <p>{tempTrend}</p>
           </div>
+          
         </div>
       ) : (
         <p id="weather-loading" className="weather-loading">Loading weather...</p>
