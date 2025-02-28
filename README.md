@@ -162,9 +162,9 @@ This ensures a structured and complete setup process. Let me know if you need an
 
 ## 👥 Contributors  
 
-This project is developed by:  
-- **[@evitabarboza](https://github.com/evitabarboza)**  
+This project is developed by: 
 - **[@aaronfernandes21](https://github.com/aaronfernandes21)**  
+- **[@evitabarboza](https://github.com/evitabarboza)**   
 
 ---
 
