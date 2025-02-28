@@ -59,57 +59,49 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Weather Grid - Single Line Layout */
-.weather-grid {
+.weather-grid, .weather-extra {
     display: flex;
-    flex-wrap: nowrap; /* Keeps all boxes in one row */
     justify-content: center;
-    gap: 15px; /* Space between boxes */
-    padding: 10px;
-    overflow-x: auto; /* Allows scrolling if needed */
-    white-space: nowrap; /* Prevents text from wrapping */
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
-/* General Weather Box Styling */
-.weather-box, .weather-box1, .weather-box2, .weather-box3, .weather-box4, .weather-box5 {
-    background: #ffffff; /* White background for contrast */
-    border-radius: 8px; /* Slightly smaller rounded corners */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Softer shadow */
-    padding: 15px; /* Balanced padding */
-    min-width: 180px; /* Increases width */
-    max-width: 220px; /* Ensures a max limit */
-    height: 100px; /* Keeps it compact */
+.weather-box, .weather-box1, .weather-box2, .weather-box3, .weather-box4, .weather-box5, .weather-box6, .weather-box7 {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    width: 200px;
+    height: 150px;
     text-align: center;
     font-weight: bold;
-    font-size: 14px; /* Adjusts text size */
-    transition: transform 0.3s ease-in-out;
+    font-size: 16px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 16px;
     align-items: center;
     margin-top: 20px;
-    border-left: 8px solid; /* Thick left border for strip effect */
+    border-left: 8px solid;
+    min-width: 150px; /* Reduced width */
+    max-width: 180px; /* Adjusted maximum width */
+    height: 90px; /* Adjust height if needed */
 }
 
-/* Unique Colors for Each Box Strip */
-.weather-box1 { border-left-color: #ff5252; } /* Red for Traffic Factor */
-.weather-box2 { border-left-color: #ff9800; } /* Orange for Temperature */
-.weather-box3 { border-left-color: #03a9f4; } /* Blue for Humidity */
-.weather-box4 { border-left-color: #8bc34a; } /* Green for Condition */
-.weather-box5 { border-left-color: #673ab7; } /* Purple for Trend */
+.weather-box1 { border-left-color: #ff5252; }
+.weather-box2 { border-left-color: #ff9800; }
+.weather-box3 { border-left-color: #03a9f4; }
+.weather-box4 { border-left-color: #8bc34a; }
+.weather-box5 { border-left-color: #673ab7; }
+.weather-box6 { border-left-color: #ffeb3b; }
+.weather-box7 { border-left-color: #009688; }
 
-/* Hover Effect */
-.weather-box:hover, 
-.weather-box1:hover, 
-.weather-box2:hover, 
-.weather-box3:hover, 
-.weather-box4:hover, 
-.weather-box5:hover {
-    transform: scale(1.05); /* Slight pop effect */
+.weather-box:hover {
+    transform: scale(1.05);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
+
 
 
 /* Styling for the "Current Weather:" label */
@@ -123,6 +115,7 @@ body {
     color: #c57205; /* Blue shade */
     font-weight: bold;
 }
+
 
   /* Responsive Adjustments */
   @media (max-width: 768px) {

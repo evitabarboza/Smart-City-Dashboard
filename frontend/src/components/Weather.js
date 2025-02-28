@@ -96,11 +96,22 @@ const Weather = () => {
               <p>🌥️ Condition</p>
               <p>{weather?.weather[0].description}</p>
             </div>
+            </div>
+            <div className="weather-extra">
             <div className="weather-box5">
               <p>📊 Trend</p>
               <p>{tempTrend}</p>
             </div>
-          </div>
+              <div className="weather-box6">
+              <p>🌬 Wind Speed</p>
+              <p>{weather?.wind?.speed} m/s</p>
+              </div>
+              <div className="weather-box7">
+              <p>🔽 Air Pressure</p>
+              <p>{weather?.main?.pressure} hPa</p>
+              </div>
+              </div>
+          
           
         </div>
         {travelNotification && <div className="weather-notification">{travelNotification}</div>}
