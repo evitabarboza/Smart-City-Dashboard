@@ -1,6 +1,4 @@
-![MIT License](https://img.shields.io/badge/License-MIT-blue.svg
-
-# 🚀 TRACK - A Smart City Dashboard for Mangalore  
+#  TRACK - A Smart City Dashboard for Mangalore  
 
 ![Homepage Screenshot](/frontend/public/one.png) <!-- Replace # with the actual image path -->
 
