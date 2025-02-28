@@ -1,7 +1,7 @@
 
 # 🚀 TRACK - A Smart City Dashboard for Mangalore  
 
-![Homepage Screenshot](/frontend/public/one.png)) <!-- Replace # with the actual image path -->
+![Homepage Screenshot](/frontend/public/one.png) <!-- Replace # with the actual image path -->
 
 ## 📌 About TRACK  
 
@@ -171,7 +171,7 @@ This project is developed by:
 
 ## 📜 License  
 
-This project is licensed under the **MIT License**.  
+This project is licensed under the **MIT License**(/LICENSE).  
 
 ---
 
