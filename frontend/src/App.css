@@ -4,37 +4,21 @@
     margin-top: 20px;
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: #020202;
+    font-family: "CustomCursive", cursive;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #86a8e7);
+    padding: 15px 0;  /* Adds vertical spacing */
+    width: 100vw;  /* Full viewport width */
+    position: relative; /* Ensures it stays within the normal flow */
+    left: 0; /* Aligns to the left edge */
 }
 
 
-#weather-dashboard {
-    background-color: #f3f3f3;
-    padding: 25px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 900px;
-    margin: 50px auto; 
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-
-.weather-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 16px;
-    width: 100%;
-    max-width: 800px;
-    justify-content: center; 
-}
 @font-face {
     font-family: "CustomCursive";
     src: url("/public/font/Amsterdam Handwriting.ttf") format("truetype");
 }
+
 .track-title {
     font-family: "CustomCursive", cursive;
     font-size: 2.5rem;
@@ -42,12 +26,10 @@
     text-align: center;
 }
 
-
-
 .weather-box {
     padding: 15px;
     border-radius: 8px;
-    background: white;
+    background: rgb(255, 255, 255);
     margin: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -63,7 +45,7 @@
 
 
 .weather-loading {
-    color: gray;
+    color: rgb(232, 173, 84);
     font-style: italic;
 }
 
@@ -82,22 +64,26 @@
 
 
 .opening-page {
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     text-align: center;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b, #86a8e7);
+    background: linear-gradient(135deg, #da833c, #feb47b, #285dc1);
     color: white;
     font-family: "Arial", sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 
 
 .app-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #333;
+    color: #1d1c1c;
 }
 
 
@@ -108,10 +94,9 @@
 
 .tagline {
     font-size: 1.2rem;
-    color: #666;
+    color: #323232;
     margin-top: 10px;
 }
-
 
 .api-highlight {
     color: #0047AB;  
@@ -133,9 +118,19 @@
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+
+.full-form {
+    font-family: 'Rowdies', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #34495e;
+    margin-top: -10px;
+  }
+
 .continue-button:hover {
-    background: #1A252F; 
-    border-color: #1A252F;
+    background: #031f3a; 
+    border-color: #031b31;
     transform: translateY(-2px);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -145,8 +140,28 @@
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+.weather-footer {
+    margin-top: 30px;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .weather-footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .weather-footer p {
+    margin: 5px 0;
+  }
 
-.dashboard {
+/* .dashboard {
     padding: 30px;
     width: 90%;
     max-width: 1000px;
@@ -154,4 +169,38 @@
     border-radius: 12px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
+} */
+
+/* #weather-dashboard {
+    background-color: #306789;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto; 
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+
+} */
+
+/* #weather-dashboard {
+    max-width: 900px;
+    margin: 50px auto; 
+    text-align: center;
+    display: flex;
+    align-items: center; 
+
+} */
+
+/* .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 16px;
+    width: 100%;
+    max-width: 800px;
+    justify-content: center; 
+} */

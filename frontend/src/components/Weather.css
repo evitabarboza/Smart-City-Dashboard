@@ -1,74 +1,213 @@
+@font-face {
+    font-family: "CustomCursive";
+    src: url("/public/font/Amsterdam Handwriting.ttf") format("truetype");
+}
 
-.weather-container {
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto; /* Centers the container horizontally */
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    color: black;
-    padding: 20px;
+#weather-dashboard {
+    width: 90vw;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the content inside */
-    justify-content: center; /* Centers vertically */
-    text-align: center; /* Ensures text is centered */
-}
-
-/* Centering the grid */
-.weather-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    width: 100%;
-    max-width: 800px;
-    justify-content: center; 
-}
-
-
-.weather-box {
-    background: #ffffff;
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-
-.weather-box h3, 
-.weather-box p {
-    font-size: 1rem;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-}
-
-
-.weather-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    width: 100%;
-    max-width: 800px;
-    margin-top: 16px;
     justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
     text-align: center;
+    margin: 0 auto; /* Ensures it stays centered */
+    position: relative;
+    top: -30px; /* Moves it slightly upwards */
 }
 
-/* Responsive design for larger screens */
-@media (min-width: 768px) {
-    .weather-details {
-        grid-template-columns: repeat(4, 1fr);
-    }
+
+.weather-title {
+    font-family: serif;
+    font-size: 30px;
+    text-align: center;
+    color: #1c1541;
+    margin-bottom: 10px; /* Reduce bottom margin */
+    margin-top: 0; /* Remove any unwanted top margin */
+    padding-top: 5px; /* Adjust if necessary */
 }
 
-/* Error and notification messages */
-.weather-error,
-.weather-loading,
-.weather-notification {
+.season-info{
+  font-family: "Bungee Shade", cursive; /* Unique, bold font */
+  font-size: 1rem; /* Large size for emphasis */
+  text-align: center;
+  font-weight: bold;
+  color: #f39c12; /* Warm, eye-catching color */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+/* Full-screen background */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e3edf7; /* Soft blue background */
+    margin: 0;
+}
+
+/* Header - Mangalore Weather */
+.mangalore-weather h3 {
+    font-size: 28px;
+    font-weight: 700;
     text-align: center;
-    width: 100%;
-    font-size: 1rem;
+    color: #2c3e50; /* Dark blue */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Weather Grid - Single Line Layout */
+.weather-grid {
+    display: flex;
+    flex-wrap: nowrap; /* Keeps all boxes in one row */
+    justify-content: center;
+    gap: 15px; /* Space between boxes */
+    padding: 10px;
+    overflow-x: auto; /* Allows scrolling if needed */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* General Weather Box Styling */
+.weather-box, .weather-box1, .weather-box2, .weather-box3, .weather-box4, .weather-box5 {
+    background: #ffffff; /* White background for contrast */
+    border-radius: 8px; /* Slightly smaller rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    padding: 15px; /* Balanced padding */
+    min-width: 180px; /* Increases width */
+    max-width: 220px; /* Ensures a max limit */
+    height: 100px; /* Keeps it compact */
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px; /* Adjusts text size */
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    align-items: center;
+    margin-top: 20px;
+    border-left: 8px solid; /* Thick left border for strip effect */
+}
+
+/* Unique Colors for Each Box Strip */
+.weather-box1 { border-left-color: #ff5252; } /* Red for Traffic Factor */
+.weather-box2 { border-left-color: #ff9800; } /* Orange for Temperature */
+.weather-box3 { border-left-color: #03a9f4; } /* Blue for Humidity */
+.weather-box4 { border-left-color: #8bc34a; } /* Green for Condition */
+.weather-box5 { border-left-color: #673ab7; } /* Purple for Trend */
+
+/* Hover Effect */
+.weather-box:hover, 
+.weather-box1:hover, 
+.weather-box2:hover, 
+.weather-box3:hover, 
+.weather-box4:hover, 
+.weather-box5:hover {
+    transform: scale(1.05); /* Slight pop effect */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Styling for the "Current Weather:" label */
+.label {
+    color: #c57205; /* Red shade */
     font-weight: bold;
 }
+
+/* Styling for the actual weather value */
+.weather-value {
+    color: #c57205; /* Blue shade */
+    font-weight: bold;
+}
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .weather-grid {
+      flex-direction: column; /* Stack items on smaller screens */
+      align-items: center;
+    }
+    .weather-box, .weather-box1, .weather-box2, .weather-box3 {
+      width: 80%;
+    }
+  }
+
+.weather-box:hover {
+    transform: scale(1.05);
+}
+
+/* Individual Weather Elements */
+.weather-box p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+/* Highlight Temperature */
+.weather-box:nth-child(2) p:nth-child(2) {
+    color: #e74c3c; /* Red for temperature */
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Highlight Humidity */
+.weather-box:nth-child(3) p:nth-child(2) {
+    color: #3498db; /* Blue for humidity */
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Highlight Weather Condition */
+.weather-box:nth-child(4) p:nth-child(2) {
+    color: #2ecc71; /* Green for conditions */
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Highlight Trend */
+.weather-box:nth-child(5) p:nth-child(2) {
+    color: #f39c12; /* Yellow for trend */
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Travel notification styling */
+.weather-notification {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* Alert Colors */
+.weather-notification.safe {
+    background: #2ecc71;
+    color: white;
+}
+
+.weather-notification.warning {
+    background: #e74c3c;
+    color: white;
+}
+
+.weather-notification.medium {
+    background: #f39c12;
+    color: white;
+}
+
+/* Last Updated */
+.last-updated {
+    font-size: 14px;
+    color: grey;
+    margin-top: 10px;
+    font-style: italic;
+    margin-bottom: -20px;
+}
+
+
