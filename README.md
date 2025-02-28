@@ -1,6 +1,3 @@
-Here’s your **README.md** with a structured format, problem statement, and detailed explanation of how **TRACK** solves the issue:  
-
----
 
 # 🚀 TRACK - A Smart City Dashboard for Mangalore  
 
@@ -80,35 +77,73 @@ TRACK/
 │   │── trafficData.json
 ```
 
+
+
 ---
 
 ## 🔧 Installation & Setup  
 
 1. **Clone the repository**  
    ```sh
-   git clone https://github.com/evitabarboza/track.git
+   git clone repo url
    cd track
    ```
 
-2. **Install dependencies**  
+2. **Set up the Backend**  
    ```sh
-   npm install
-   cd frontend && npm install
-   cd ../backend && npm install
+   cd backend
+   node server.js
    ```
 
-3. **Install additional dependencies**  
+   - This starts the backend server.
+
+3. **Set up the Frontend**  
+   ```sh
+   cd ../frontend
+   npm install
+   npm start
+   ```
+
+   - This installs dependencies and starts the frontend.
+
+4. **Stop Both Servers**  
+   - Once the backend and frontend are verified running, **stop both terminals** (`Ctrl + C`).
+
+5. **Configure the Routes Folder**  
+   ```sh
+   cd backend/routes
+   npm init -y
+   ```
+
+   - This creates `package.json` and `package-lock.json`.
+
+6. **Install Concurrently**  
    ```sh
    npm install concurrently --save-dev
-   npm install framer-motion
    ```
 
-4. **Run the project (Single Command to Start Frontend & Backend)**  
-   ```sh
-   npm run dev
+7. **Update `package.json`**  
+   - Open `package.json` in the root folder and replace the `scripts` section with:  
+
+   ```json
+   "scripts": {
+     "start": "concurrently \"npm run server\" \"npm run client\"",
+     "server": "cd backend && npm start",
+     "client": "cd frontend && npm start",
+     "test": "echo \"Error: no test specified\" && exit 1"
+   }
    ```
+
+8. **Start the Project**  
+   ```sh
+   npm start
+   ```
+
+   - This will run both frontend and backend together.
 
 ---
+
+This ensures a structured and complete setup process. Let me know if you need any tweaks! 🚀
 
 ## 🏗️ Technologies Used  
 
@@ -140,4 +175,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-Let me know if you need any changes! 🚀
+
