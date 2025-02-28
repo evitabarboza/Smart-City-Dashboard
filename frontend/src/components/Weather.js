@@ -33,21 +33,20 @@ const Weather = () => {
     setPrevTemp(currentTemp);
   }, [prevTemp]);
 
-  const fetchWeather = useCallback(async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/weather?city=mangalore`);
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
-      }
-      const data = await response.json();
-
-      setWeather(data);
-      analyzeTrend(data.main.temp);
-      setLastUpdated(new Date().toLocaleTimeString());
-    } catch (err) {
-      setError("⚠️ Error fetching weather data");
+ const fetchWeather = useCallback(async () => {
+  try {
+    const response = await fetch("http://localhost:5000/weather?city=mangalore"); // Update API call
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
-  }, [analyzeTrend]);
+    const data = await response.json();
+    setWeather(data);
+    analyzeTrend(data.main.temp);
+    setLastUpdated(new Date().toLocaleTimeString());
+  } catch (err) {
+    setError("⚠️ Error fetching weather data");
+  }
+}, [analyzeTrend]);
 
   useEffect(() => {
     fetchWeather();
@@ -102,6 +101,7 @@ const Weather = () => {
               <p>{tempTrend}</p>
             </div>
           </div>
+          
         </div>
         {travelNotification && <div className="weather-notification">{travelNotification}</div>}
         <p className="last-updated">🕒 Last Updated: {lastUpdated}</p>
