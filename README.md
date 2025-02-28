@@ -1,3 +1,4 @@
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg
 
 # 🚀 TRACK - A Smart City Dashboard for Mangalore  
 
@@ -169,10 +170,13 @@ This project is developed by:
 
 ---
 
+
 ## 📜 License  
 
-This project is licensed under the **MIT License**(/LICENSE).  
+This project is licensed under the **MIT License**. See the full license text in the [LICENSE](LICENSE) file.  
 
 ---
+
+
 
 
